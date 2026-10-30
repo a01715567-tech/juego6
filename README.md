@@ -1,7 +1,3 @@
-## juego6
-Proyecto Final: Modificación de videojuego
-
-
 # Giovanna Tirado Olivera - A01068247
 
 **Juego:** Tic Tac Toe (Gato)
