@@ -48,16 +48,26 @@ def floor(value):
 
 state = {'player': 0}
 players = [drawx, drawo]
+board = {}
 
 
 def tap(x, y):
     """Draw X or O in tapped square."""
     x = floor(x)
     y = floor(y)
+
+    if not (-200 <= x <= 66 and -200 <= y <= 66):
+        return
+
+    if (x, y) in board:
+        print('Esa casilla ya está ocupada, elige otra.')
+        return
+
     player = state['player']
     draw = players[player]
     draw(x, y)
     update()
+    board[(x, y)] = player
     state['player'] = not player
 
 
