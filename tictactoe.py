@@ -46,13 +46,42 @@ def floor(value):
     return ((value + 200) // 133) * 133 - 200
 
 
-state = {'player': 0}
+state = {'player': 0, 'over': False}
 players = [drawx, drawo]
 board = {}
+coords = [-200, -67, 66]
+
+
+def winner():
+    """Return the winning player or None."""
+    lines = []
+    for c in coords:
+        lines.append([(x, c) for x in coords])
+        lines.append([(c, y) for y in coords])
+    lines.append([(coords[i], coords[i]) for i in range(3)])
+    lines.append([(coords[i], coords[2 - i]) for i in range(3)])
+
+    for cells in lines:
+        values = [board.get(cell) for cell in cells]
+        if values[0] is not None and values.count(values[0]) == 3:
+            return values[0]
+    return None
+
+
+def show_message(text):
+    """Write the final result in the middle of the board."""
+    up()
+    goto(0, -20)
+    color('green')
+    write(text, align='center', font=('Arial', 36, 'bold'))
+    print(text)
 
 
 def tap(x, y):
     """Draw X or O in tapped square."""
+    if state['over']:
+        return
+
     x = floor(x)
     y = floor(y)
 
@@ -66,8 +95,18 @@ def tap(x, y):
     player = state['player']
     draw = players[player]
     draw(x, y)
-    update()
     board[(x, y)] = player
+
+    win = winner()
+    if win is not None:
+        name = 'X' if win == 0 else 'O'
+        show_message('¡Ganó ' + name + '!')
+        state['over'] = True
+    elif len(board) == 9:
+        show_message('¡Empate!')
+        state['over'] = True
+
+    update()
     state['player'] = not player
 
 
