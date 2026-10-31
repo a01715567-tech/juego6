@@ -30,3 +30,18 @@ python3 tictactoe.py
 **Como ejecutarlo:**
 python3 pacman.py
  
+
+#Fernanda Torre Lopez - A01715567
+
+**Juego: ** Memoria
+
+** Rama: ** 'A01715567_memoria'
+
+**Cambios realizados:**
+1. **Contar y desplegar el número de pares descubiertos ** Se agrego un mini tablero que muestra la cantidad de fichas voltedas
+2. **Detectar cuando todos los cuadros se han destapado ** Pone un mensaje de ganaste ya que se abreron todos los numeros y se ve la imagen.
+3. **Cambiar el número de casillas del tablero ** De 64 casillas se cambiaron a 16, 4x4.
+
+**Como ejecutarlo:**
+python3 memoria.py
+
