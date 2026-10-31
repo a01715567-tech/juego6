@@ -15,3 +15,18 @@ Proyecto Final: Modificación de videojuego
 
 **Cómo ejecutarlo:**
 python3 tictactoe.py
+
+#Gabriel Sebastian Molina Ortega - A01701988
+
+**Juego:** Pac - Man
+
+**Rama:** `A01710988_pacman`
+
+**Cambios realizados:**
+1. **Tablero:** se modificó el color, cambiando de azul a naranja
+2. **Tamaño y color del alimento:** El tamaño pasó de un valor de 2 a uno de 5, y el color pasó de blanco a morado
+3. **Velocidad de los fantasm:** Se cambió el valor de velocidad de los fantasmas en los diferentes vectores que lo controlaban, pasando de 5 a 15
+
+**Como ejecutarlo:**
+python3 pacman.py
+ 
