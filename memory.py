@@ -16,7 +16,7 @@ from freegames import path
 
 car = path('car.gif')
 tiles = list(range(32)) * 2
-state = {'mark': None}
+state = {'mark': None, 'pairs': 0}
 hide = [True] * 64
 
 
@@ -45,6 +45,11 @@ def xy(count):
 
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
+
+    #Ignore clicks outside the board
+    if not (-200 <= x < 200 and -200 <= y < 200):
+        return
+
     spot = index(x, y)
     mark = state['mark']
 
@@ -54,6 +59,8 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+        state['pairs'] += 1  # new pair was found
+
 
 
 def draw():
@@ -77,12 +84,20 @@ def draw():
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
+   # Show how many pairs have been found
+    up()
+    goto(-200, 205)
+    color('black')
+    write(f"Pares: {state['pairs']} / {len(tiles) // 2}", font=('Arial', 16, 'normal'))
+
     update()
+
     ontimer(draw, 100)
 
 
 shuffle(tiles)
-setup(420, 420, 370, 0)
+setup(420, 480, 370, 0)  # taller window to show the counter
+screensize(420, 480)  # drawing area size so the whole board is visible
 addshape(car)
 hideturtle()
 tracer(False)
