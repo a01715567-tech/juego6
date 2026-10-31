@@ -89,7 +89,7 @@ def valid(point):
 
 def world():
     """Draw world using path."""
-    bgcolor('black')
+    bgcolor('orange')
     path.color('blue')
 
     for index in range(len(tiles)):
