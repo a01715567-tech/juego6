@@ -90,6 +90,13 @@ def draw():
     color('black')
     write(f"Pares: {state['pairs']} / {len(tiles) // 2}", font=('Arial', 16, 'normal'))
 
+    # All tiles revealed: the game is over
+    if not any(hide):
+        up()
+        goto(0, 0)
+        color('red')
+        write("¡Ganaste!", align='center', font=('Arial', 40, 'bold'))
+
     update()
 
     ontimer(draw, 100)
