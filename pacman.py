@@ -11,7 +11,7 @@ aim = vector(5, 0)
 pacman = vector(-40, -80)
 ghosts = [
     [vector(-180, 160), vector(15, 0)],
-    [vector(-180, -160), vector(0, 15)],
+    [vector(-180, -160), vector(0, 15)],  """Aumenta la velocidad de los fantasmas 5 >>> 15"""
     [vector(100, 160), vector(0, -15)],
     [vector(100, -160), vector(-15, 0)],
 ]
@@ -80,7 +80,7 @@ def valid(point):
 
 def world():
     """Dibja el mapa usando path."""
-    bgcolor('orange')
+    bgcolor('orange') """Cambia el color de las paredes del laberinto de azul a naranja"""
     path.color('blue')
 
     for index in range(len(tiles)):
@@ -94,7 +94,7 @@ def world():
             if tile == 1:
                 path.up()
                 path.goto(x + 10, y + 10)
-                path.dot(5, 'purple')
+                path.dot(5, 'purple')  """Cambia tamaño y color de la comida"""
 
 
 def move():
@@ -127,7 +127,7 @@ def move():
             options = [
                 vector(15, 0),
                 vector(-15, 0),
-                vector(0, 15),
+                vector(0, 15),  """Cambia la velocidad de los fantasmas 5 >>> 15"""
                 vector(0, -15),
             ]
             plan = choice(options)
