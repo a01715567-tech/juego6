@@ -1,12 +1,3 @@
-"""
-Exercises
-
-1. Change the board.
-2. Change the number of ghosts.
-3. Change where pacman starts.
-4. Make the ghosts faster/slower.
-5. Make the ghosts smarter.
-"""
 
 from random import choice
 from turtle import *
@@ -51,7 +42,7 @@ tiles = [
 
 
 def square(x, y):
-    """Draw square using path at (x, y)."""
+    """Dibuja un cuadrao usando path en (x, y)."""
     path.up()
     path.goto(x, y)
     path.down()
@@ -65,7 +56,7 @@ def square(x, y):
 
 
 def offset(point):
-    """Return offset of point in tiles."""
+    """Devuelve el desplazamiento del punto en cuadrados."""
     x = (floor(point.x, 20) + 200) / 20
     y = (180 - floor(point.y, 20)) / 20
     index = int(x + y * 20)
@@ -73,7 +64,7 @@ def offset(point):
 
 
 def valid(point):
-    """Return True if point is valid in tiles."""
+    """Devuelve True si el punto es válido en los cuadrados."""
     index = offset(point)
 
     if tiles[index] == 0:
@@ -88,7 +79,7 @@ def valid(point):
 
 
 def world():
-    """Draw world using path."""
+    """Dibja el mapa usando path."""
     bgcolor('orange')
     path.color('blue')
 
@@ -107,7 +98,7 @@ def world():
 
 
 def move():
-    """Move pacman and all ghosts."""
+    """Mueve a pacman y a los fantasmas."""
     writer.undo()
     writer.write(state['score'])
 
@@ -157,7 +148,7 @@ def move():
 
 
 def change(x, y):
-    """Change pacman aim if valid."""
+    """Cambia la dirección de pacman si es válido."""
     if valid(pacman + vector(x, y)):
         aim.x = x
         aim.y = y
